@@ -3,5 +3,12 @@ using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    setlocale(LC_ALL, "RUS");
+    string text;
+    std::cout << "Введите слово: "; cin >> text;
+    double v = 0;
+    // расчет
+
+
+    std::cout << "Вероятность: " << v;
 }
