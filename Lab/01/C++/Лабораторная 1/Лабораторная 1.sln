@@ -11,46 +11,64 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Json", "Json\Json.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyServer", "MyServer\MyServer.vcxproj", "{59AC7B0B-9F16-4C1D-9FD0-DDA66DBF90B9}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Pyton 4", "..\..\Pyton\Лабораторная 1\Pyton 4\Pyton 4.pyproj", "{7276B58F-2177-4ED7-819E-A874D5154B57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A208085-3C30-49B1-8A23-346B6250699D}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{0A208085-3C30-49B1-8A23-346B6250699D}.Debug|x64.ActiveCfg = Debug|x64
 		{0A208085-3C30-49B1-8A23-346B6250699D}.Debug|x64.Build.0 = Debug|x64
 		{0A208085-3C30-49B1-8A23-346B6250699D}.Debug|x86.ActiveCfg = Debug|Win32
 		{0A208085-3C30-49B1-8A23-346B6250699D}.Debug|x86.Build.0 = Debug|Win32
+		{0A208085-3C30-49B1-8A23-346B6250699D}.Release|Any CPU.ActiveCfg = Release|Win32
 		{0A208085-3C30-49B1-8A23-346B6250699D}.Release|x64.ActiveCfg = Release|x64
 		{0A208085-3C30-49B1-8A23-346B6250699D}.Release|x64.Build.0 = Release|x64
 		{0A208085-3C30-49B1-8A23-346B6250699D}.Release|x86.ActiveCfg = Release|Win32
 		{0A208085-3C30-49B1-8A23-346B6250699D}.Release|x86.Build.0 = Release|Win32
+		{726C4371-4BF8-49B3-B3F8-7F5D96510A51}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{726C4371-4BF8-49B3-B3F8-7F5D96510A51}.Debug|x64.ActiveCfg = Debug|x64
 		{726C4371-4BF8-49B3-B3F8-7F5D96510A51}.Debug|x64.Build.0 = Debug|x64
 		{726C4371-4BF8-49B3-B3F8-7F5D96510A51}.Debug|x86.ActiveCfg = Debug|Win32
 		{726C4371-4BF8-49B3-B3F8-7F5D96510A51}.Debug|x86.Build.0 = Debug|Win32
+		{726C4371-4BF8-49B3-B3F8-7F5D96510A51}.Release|Any CPU.ActiveCfg = Release|Win32
 		{726C4371-4BF8-49B3-B3F8-7F5D96510A51}.Release|x64.ActiveCfg = Release|x64
 		{726C4371-4BF8-49B3-B3F8-7F5D96510A51}.Release|x64.Build.0 = Release|x64
 		{726C4371-4BF8-49B3-B3F8-7F5D96510A51}.Release|x86.ActiveCfg = Release|Win32
 		{726C4371-4BF8-49B3-B3F8-7F5D96510A51}.Release|x86.Build.0 = Release|Win32
+		{1279E768-59E4-404A-8F1A-CF77065DF84E}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{1279E768-59E4-404A-8F1A-CF77065DF84E}.Debug|x64.ActiveCfg = Debug|x64
 		{1279E768-59E4-404A-8F1A-CF77065DF84E}.Debug|x64.Build.0 = Debug|x64
 		{1279E768-59E4-404A-8F1A-CF77065DF84E}.Debug|x86.ActiveCfg = Debug|Win32
 		{1279E768-59E4-404A-8F1A-CF77065DF84E}.Debug|x86.Build.0 = Debug|Win32
+		{1279E768-59E4-404A-8F1A-CF77065DF84E}.Release|Any CPU.ActiveCfg = Release|Win32
 		{1279E768-59E4-404A-8F1A-CF77065DF84E}.Release|x64.ActiveCfg = Release|x64
 		{1279E768-59E4-404A-8F1A-CF77065DF84E}.Release|x64.Build.0 = Release|x64
 		{1279E768-59E4-404A-8F1A-CF77065DF84E}.Release|x86.ActiveCfg = Release|Win32
 		{1279E768-59E4-404A-8F1A-CF77065DF84E}.Release|x86.Build.0 = Release|Win32
+		{59AC7B0B-9F16-4C1D-9FD0-DDA66DBF90B9}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{59AC7B0B-9F16-4C1D-9FD0-DDA66DBF90B9}.Debug|x64.ActiveCfg = Debug|x64
 		{59AC7B0B-9F16-4C1D-9FD0-DDA66DBF90B9}.Debug|x64.Build.0 = Debug|x64
 		{59AC7B0B-9F16-4C1D-9FD0-DDA66DBF90B9}.Debug|x86.ActiveCfg = Debug|Win32
 		{59AC7B0B-9F16-4C1D-9FD0-DDA66DBF90B9}.Debug|x86.Build.0 = Debug|Win32
+		{59AC7B0B-9F16-4C1D-9FD0-DDA66DBF90B9}.Release|Any CPU.ActiveCfg = Release|Win32
 		{59AC7B0B-9F16-4C1D-9FD0-DDA66DBF90B9}.Release|x64.ActiveCfg = Release|x64
 		{59AC7B0B-9F16-4C1D-9FD0-DDA66DBF90B9}.Release|x64.Build.0 = Release|x64
 		{59AC7B0B-9F16-4C1D-9FD0-DDA66DBF90B9}.Release|x86.ActiveCfg = Release|Win32
 		{59AC7B0B-9F16-4C1D-9FD0-DDA66DBF90B9}.Release|x86.Build.0 = Release|Win32
+		{7276B58F-2177-4ED7-819E-A874D5154B57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7276B58F-2177-4ED7-819E-A874D5154B57}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7276B58F-2177-4ED7-819E-A874D5154B57}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7276B58F-2177-4ED7-819E-A874D5154B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7276B58F-2177-4ED7-819E-A874D5154B57}.Release|x64.ActiveCfg = Release|Any CPU
+		{7276B58F-2177-4ED7-819E-A874D5154B57}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

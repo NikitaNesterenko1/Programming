@@ -2,9 +2,12 @@
 #include <string>
 #include <cpp_httplib/httplib.h>
 #include <nlohmann/json.hpp>
+
 using json = nlohmann::json;
 using namespace httplib;
 using namespace std;
+
+
 
 long get_time (){
     // Создаём клиент и привязываем к домену. Туда пойдут наши запросы
@@ -56,17 +59,19 @@ json get_weather() {
     }
 }
 
-// В этой функции формируем ответ сервера на запрос
+
 void gen_response(const Request& req, Response& res) {
-	// Команда set_content задаёт ответ сервера и тип ответа:
-	// Hello, World! - тело ответа
-	// text/plain - MIME тип ответа (в данном случае обычный текст)
-	res.set_content("Hello, World!", "text/plain");
+
+    ifstream fin("tep.html");
+    string str;
+    getline(fin, str, '\0');
+    cout << str;
+	res.set_content(str, "text/html");
 }
 void gen_response_raw(const Request& req, Response& res) {
-    //long t = get_time();
-    //json w = get_weather();
-    res.set_content("{}", "text/json");
+    long t = get_time();
+    json w = get_weather();
+    res.set_content(w.dump(), "text/json");
 }
 
 int main() {
