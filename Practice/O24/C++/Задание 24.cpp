@@ -6,7 +6,8 @@ using json = nlohmann::json;
 
 int main() {
     std::ifstream input("in.json");
-    json inObject; input >> inObject;
+    json inObject; 
+    input >> inObject;
     json outObject;
 
     for (auto& item : inObject) {
