@@ -5,7 +5,12 @@ import json
  
 url0 = "http://api.openweathermap.org/data/2.5/weather?q=Simferopol&units=metric&appid=e77a594c893b3114f6e35c0c3aab4509"
 
+
 def change(event):
+    load()
+
+
+def load():
     # load weather
     # data = {"name":"Simf","weather":"Cloudy","temp":10}
     response = requests.get(url0)
@@ -30,7 +35,7 @@ temp = Label(text="-",
              bg='black', fg='white')
 temp.pack()
 
-change()
+load()
 
 root.bind('<Button-1>', change)
 
