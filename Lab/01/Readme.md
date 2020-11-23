@@ -1,3 +1,13 @@
+https://openweathermap.org/city/693805
+e77a594c893b3114f6e35c0c3aab4509 API KEY
+api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+http://api.openweathermap.org/data/2.5/weather?q=Simferopol&appid=e77a594c893b3114f6e35c0c3aab4509
+{"coord":{"lon":34.11,"lat":44.96},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01d"}],"base":"stations","main":{"temp":274.84,"feels_like":270.7,"temp_min":274.84,"temp_max":274.84,"pressure":1031,"humidity":78,"sea_level":1031,"grnd_level":1000},"visibility":10000,"wind":{"speed":2.73,"deg":293},"clouds":{"all":0},"dt":1606053070,"sys":{"country":"UA","sunrise":1606020651,"sunset":1606054142},"timezone":10800,"id":693805,"name":"Simferopol","cod":200}
+http://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&units={units}
+http://api.openweathermap.org/data/2.5/onecall?lat=44.96&lon=34.11&units=metric&appid=e77a594c893b3114f6e35c0c3aab4509
+ http://openweathermap.org/ и http://worldtimeapi.org
+
+
 
 <p align="center">МИНИСТЕРСТВО НАУКИ  И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ<br>
 Федеральное государственное автономное образовательное учреждение высшего образования<br>
@@ -7,8 +17,8 @@
 <br>
 <h3 align="center">Отчёт по лабораторной работе № 1<br> по дисциплине "Программирование"</h3>
 <br><br>
-<p>студента 1 курса группы ПИ-б-о-202(2)<br>
-Феськова Ильи Станиславовича<br>
+<p>студента 1 курса группы ПИ-б-о-202(1)<br>
+Нестеренко Никиты Сергеевича<br>
 направления подготовки 09.03.04 "Программная инженерия"</p>
 <br><br>
 <table>
@@ -21,7 +31,6 @@
 <p align="center">Симферополь, 2020</p>
 <hr>
 
-<!-- ![](./image/pic1.png) -->
 ## Цель:
 
 1.Закрепить навыки разработки многофайловыx приложений;
@@ -37,8 +46,6 @@
 Клиентское приложение должно иметь графический интерфейс отображающий сведения о погоде и возможность обновления данных по требованию пользователя.
 
 ## Выполнение работы
-<!--
--->
 
 1.Для начала был зарегистрирован аккаунт openwheatermap.org. API ключ по-умолчанию созданный сервисом: e77a594c893b3114f6e35c0c3aab4509.
 
@@ -55,6 +62,27 @@ api.openweathermap.org/data/2.5/onecall?lat=45.0522222222&lon=33.9744444444&excl
 http://api.openweathermap.org/data/2.5/weather?q=Simferopol&appid=e77a594c893b3114f6e35c0c3aab4509
 
 Исходный код сервера:
+```cpp
+
+#include <iostream>
+#include <cpp_httplib/httplib.h>
+using namespace httplib;
+ 
+// В этой функции формируем ответ сервера на запрос
+void gen_response(const Request& req, Response& res) {
+  // Команда set_content задаёт ответ сервера и тип ответа:
+  // Hello, World! - тело ответа
+  // text/plain - MIME тип ответа (в данном случае обычный текст)
+  res.set_content("Hello, World!", "text/plain");
+}
+ 
+int main(){
+  Server svr;                    // Создаём сервер (пока-что не запущен)
+  svr.Get("/", gen_response);    // Вызвать функцию gen_response если кто-то обратиться к корню "сайта"
+  std::cout << "Start server... OK\n";
+  svr.listen("localhost", 1234); // Запускаем сервер на localhost и порту 1234
+}
+```
 
 2.Подготовка к работе с сервисом worldtimeapi.org.
 
@@ -254,7 +282,7 @@ root.mainloop()
 
 Запустив программу мы перейдя по ссылке https://vladimirchabanov.github.io/Lab1_fils/widget.html сможем увидеть:
 
-![](./files/Pyton (2).png)
+![](./files/Pyton2.png)
 
 ## 5.Туннель.
 
