@@ -82,7 +82,7 @@ json get_weather_cach() {
 
 json get_weather_hour() {
     long t = get_time();
-    int k;
+    int k = 0;
     do {
         json w = get_weather_cach();
         if (!w["error"].is_null()) {
