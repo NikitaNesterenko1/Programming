@@ -32,14 +32,14 @@ long get_time (){
         auto err = res.error();
         std::cout << "Error code: " << err << std::endl;
     }
+    return -1;
 }
 
 json get_weather() {
     // Создаём клиент и привязываем к домену. Туда пойдут наши запросы
     Client cli("http://api.openweathermap.org");
     // Отправляем get-запрос и ждём ответ, который сохраняется в переменной res
-    auto res = cli.Get("/data/2.5/weather?q=Simferopol&appid=e77a594c893b3114f6e35c0c3aab4509");
-    // res преобразуется в true, если запрос-ответ прошли без ошибок
+    auto res = cli.Get("/data/2.5/onecall?lat=44.96&lon=34.11&exclude=current,minutely,daily,alerts&appid=e77a594c893b3114f6e35c0c3aab4509");
     if (res) {
         // Проверяем статус ответа, т.к. может быть 404 и другие
         if (res->status == 200) {
@@ -51,26 +51,77 @@ json get_weather() {
         }
         else {
             std::cout << "Status code: " << res->status << std::endl;
+            return json({ "error",res->status });
         }
     }
     else {
         auto err = res.error();
         std::cout << "Error code: " << err << std::endl;
+        return json({ "error",err });
     }
 }
 
+json get_weather_cach() {
+    ifstream fin("weather");
+    if (fin.is_open()) {
+        string f;
+        getline(fin, f, '\0');
+        fin.close();
+        return json(f);
+    }
+    else {
+        json forecast = get_weather();
+        if (forecast["error"].is_null()) {
+            ofstream h("weather");
+            h << forecast;
+            h.close();
+        }
+        return forecast;
+    }
+}
+
+json get_weather_hour() {
+    long t = get_time();
+    int k;
+    do {
+        json w = get_weather_cach();
+        if (!w["error"].is_null()) {
+            return w;
+        }
+        json hourly = w["hourly"].array();
+        int s = hourly.size() - 1;
+        for (int i = s; i >= 0; --i) {
+            if (hourly[i]["dt"] > t) {
+                return hourly[i];
+            }
+        }
+    } while (k++ < 3);
+    return json({ "error","нет данных" });
+}
+
+void repleas(string& text, string play, string change) {
+
+}
 
 void gen_response(const Request& req, Response& res) {
-
+    json w = get_weather_hour();
+    if (!w["error"].is_null()) {
+        res.set_content(w.dump(), "text/json");
+        return ;
+    }
     ifstream fin("tep.html");
     string str;
     getline(fin, str, '\0');
+    fin.close();
     cout << str;
+    repleas(str, "{hourly[i].weather[0].description}", w["weather"][0]["description"]);
+    repleas(str, "{hourly[i].weather[0].icon}", w["weather"][0]["description"]);
+    repleas(str, "{hourly[i].temp}", w["weather"][0]["description"]);
+
 	res.set_content(str, "text/html");
 }
 void gen_response_raw(const Request& req, Response& res) {
-    long t = get_time();
-    json w = get_weather();
+    json w = get_weather_hour();
     res.set_content(w.dump(), "text/json");
 }
 
