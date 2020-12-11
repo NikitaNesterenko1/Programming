@@ -12,11 +12,11 @@ def IsSorted(array: list, ascending = True) -> bool:
         for i in range(1, size):
             if array[i-1] > array[i]:
                 return False
-    else: # descending
+    else: 
         for i in range(1, size):
             if array[i-1] < array[i]:
-                return False
-    return True
+                return False 
+            return True
 
 def BozoSort(array: list, ascending = True) -> List[int]:
     '''
@@ -42,15 +42,9 @@ def BozoSort(array: list, ascending = True) -> List[int]:
 
     return result
 
-# Python dosn't allow overloading of a function
 def BozoSortForThree(a: int, b: int, c: int, ascending = True) -> List[int]:
     return BozoSort([a, b, c], ascending)
 
-#------------------------------------------------------------------------------
-
-#   Main function
-
-#------------------------------------------------------------------------------
 
 n = int(input('Введите целое число, являющееся квадратом целого числа: '))
 n_sqrt = int(n**0.5)

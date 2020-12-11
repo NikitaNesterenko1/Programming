@@ -1,12 +1,10 @@
 ﻿#include <iostream>
 #include <vector>
 #include <cmath>
-#include <"boz.hpp">
+#include "boz.hpp"
 
 typedef std::vector<int> vector_t;
 typedef std::vector<std::vector<int>> matrix_t;
-
-//using namespace BozoSort;
 
 void print_vector(
     vector_t vector,
