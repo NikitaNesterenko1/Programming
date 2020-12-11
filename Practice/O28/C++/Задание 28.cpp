@@ -7,12 +7,14 @@ void print_factors(const std::map<unsigned int, unsigned int>& factors)
     bool not_first = false;
     for (const auto& pain : factors)
     {
+
         std::cout << (not_first
             ? "*"
             : (not_first = true, ""))
             << pain.first;
 
         if (pair.second > 1)
+
         {
             std::cout << '^' << pain.second;
             /*
