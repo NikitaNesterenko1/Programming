@@ -77,7 +77,7 @@ json help_state_buttons =
 	},
 };
 
-json get_config(); 
+json get_config();
 void replace_all(std::string& data,
 	const std::string& to_replace,
 	const std::string& replace_with); 
@@ -603,6 +603,6 @@ void yandex_hook(const Request& req, Response& res)
 		}
 	}
 
-
+	
 	std::cout << std::endl;
 }

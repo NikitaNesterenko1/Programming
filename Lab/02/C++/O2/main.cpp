@@ -13,7 +13,9 @@ void yandex_hook(const Request& req, Response& res);
 
 int main()
 {
+	
 	// https://stackoverflow.com/a/57134096
+
 
 	Server srv;
 
@@ -32,3 +34,4 @@ int main()
 
 	srv.listen("localhost", 1234);
 }
+
