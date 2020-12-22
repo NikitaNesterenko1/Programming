@@ -5,18 +5,16 @@
 void print_factors(const std::map<unsigned int, unsigned int>& factors)
 {
     bool not_first = false;
-    for (const auto& pain : factors)
+    for (const auto& pair : factors)
     {
-
         std::cout << (not_first
             ? "*"
             : (not_first = true, ""))
-            << pain.first;
+            << pair.first;
 
         if (pair.second > 1)
-
         {
-            std::cout << '^' << pain.second;
+            std::cout << '^' << pair.second;
             /*
             for (char digit : std::to_string(pair.second))
             {
@@ -41,8 +39,9 @@ void print_factors(const std::map<unsigned int, unsigned int>& factors)
 }
 
 void factorization(unsigned int n)
-
 {
+    // минимальное значение, делимость на которое будем проверять,
+    // т.к. все числа делятся на 1 без остатка.
     const int min_divisor = 2;
 
     std::map<unsigned int, unsigned int> factors;
@@ -62,7 +61,6 @@ void factorization(unsigned int n)
 }
 
 int main()
-
 {
     unsigned int num;
     std::cin >> num;

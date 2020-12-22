@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Задание 26.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="bozosort.hpp">
+    <ClCompile Include="Задание 27.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

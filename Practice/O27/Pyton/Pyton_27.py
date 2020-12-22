@@ -1,6 +1,6 @@
-n = int(input("Введите число n: ").strip())
 
-values = map(int, input("Введите n чисел, через пробелом:\n> ").strip().split(" "))
+n = int(input("Введите число n: ").strip())
+values = map(int, input("Введите n чисел, разделённые пробелом:\n> ").strip().split(" "))
 
 vec = []
 

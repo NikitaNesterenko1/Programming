@@ -2,12 +2,13 @@
 #include <vector>
 #include <cmath>
 
-#include "boz.hpp"
-
+#include "bozosort.hpp"
 template<class T>
 using vector_t = std::vector<T>;
 template<class T>
 using matrix_t = std::vector<std::vector<T>>;
+
+//using namespace BozoSort;
 
 template<class T>
 void print_vector(
@@ -24,9 +25,7 @@ void print_matrix(
     const char* end = "\n");
 
 template<class T>
-
 std::pair<vector_t<T>, matrix_t<T>> get_T_vec_and_matrix()
-
 {
     int n;
     std::cin >> n;
@@ -58,19 +57,19 @@ int main()
     vector_t<std::string> svector = strings.first;
     matrix_t<std::string> smatrix = strings.second;
 
-    print_vector(Boz::Boz(fvector, true));
-    print_vector(Boz::Boz(fvector, false));
-    print_vector(Boz::Boz(fmatrix, true));
-    print_vector(Boz::Boz(fmatrix, false));
-    print_vector(Bozt::Bo(fvector[0], fvector[1], fvector[2], true));
-    print_vector(Boz::Boz(fvector[0], fvector[1], fvector[2], false));
+    print_vector(BozoSort::BozoSort(fvector, true));
+    print_vector(BozoSort::BozoSort(fvector, false));
+    print_vector(BozoSort::BozoSort(fmatrix, true));
+    print_vector(BozoSort::BozoSort(fmatrix, false));
+    print_vector(BozoSort::BozoSort(fvector[0], fvector[1], fvector[2], true));
+    print_vector(BozoSort::BozoSort(fvector[0], fvector[1], fvector[2], false));
 
-    print_vector(Boz::Boz(svector, true));
-    print_vector(Boz::Boz(svector, false));
-    print_vector(Boz::Boz(smatrix, true));
-    print_vector(Boz::Boz(smatrix, false));
-    print_vector(Boz::Boz(svector[0], svector[1], svector[2], true));
-    print_vector(Boz::Boz(svector[0], svector[1], svector[2], false));
+    print_vector(BozoSort::BozoSort(svector, true));
+    print_vector(BozoSort::BozoSort(svector, false));
+    print_vector(BozoSort::BozoSort(smatrix, true));
+    print_vector(BozoSort::BozoSort(smatrix, false));
+    print_vector(BozoSort::BozoSort(svector[0], svector[1], svector[2], true));
+    print_vector(BozoSort::BozoSort(svector[0], svector[1], svector[2], false));
 }
 
 template<class T>
