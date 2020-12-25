@@ -8,8 +8,6 @@ using vector_t = std::vector<T>;
 template<class T>
 using matrix_t = std::vector<std::vector<T>>;
 
-//using namespace BozoSort;
-
 template<class T>
 void print_vector(
     vector_t<T> vector,
