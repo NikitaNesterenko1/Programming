@@ -95,6 +95,7 @@ json get_weather_hour() {
         int s = hourly.size() - 1;
         for (int i = s; i >= 0; --i) {
             if (hourly[i]["dt"] > t) {
+                hourly[i]["name"] = "Simferopol";
                 return hourly[i];
             }
         }

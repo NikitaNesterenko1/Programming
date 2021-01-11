@@ -4,7 +4,7 @@ from tkinter import *
 import requests
 import json
  
-url0 = "http://api.openweathermap.org/data/2.5/weather?q=Simferopol&units=metric&appid=e77a594c893b3114f6e35c0c3aab4509"
+url0 = "http://d4fbcacda726.ngrok.io/raw"
 
 
 def change(event):
@@ -18,7 +18,7 @@ def load():
     data = response.json()
     city['text'] = data["name"]
     weather['text'] = data["weather"][0]["main"]
-    t = data["main"]["temp"] 
+    t = data["temp"] 
     # add +
     temp['text'] = "{}℃".format(t)
  
@@ -26,14 +26,15 @@ def load():
 root = Tk()
 
 city = Label(text="City",
-                width=50, height=5)
+                width=30, height=5, 
+             bg='yellow', fg='black')
 city.pack()
 weather = Label(text="-",
-                width=50, height=5)
+                width=30, height=1, 
+             bg='yellow', fg='black')
 weather.pack()
 temp = Label(text="-", 
-             width=50, height=10, 
-             bg='black', fg='white')
+             width=30, height=10)
 temp.pack()
 
 load()
