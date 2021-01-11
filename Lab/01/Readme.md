@@ -55,8 +55,6 @@ api.openweathermap.org/data/2.5/onecall?lat=45.0522222222&lon=33.9744444444&excl
 http://api.openweathermap.org/data/2.5/weather?q=Simferopol&appid=e77a594c893b3114f6e35c0c3aab4509
 
 
-```
-
 2.Подготовка к работе с сервисом worldtimeapi.org.
 
 Сервис позволяет получить время в формате json. Составим запрос для получения времени в Симферополе и изучите формат ответа: http://worldtimeapi.org/pages/schema.
