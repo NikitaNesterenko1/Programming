@@ -104,7 +104,7 @@ int main(){
 
 В этом примере я отправляю get-запрос по адресу http://worldtimeapi.org/api/timezone/Europe/Simferopol. 
 
-![](./files/simferopol2.png)
+![](./files/simferopol3.png)
 
                                             Рис.3  Get-запрос
 
