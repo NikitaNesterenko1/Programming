@@ -39,7 +39,8 @@ json get_weather() {
     // Создаём клиент и привязываем к домену. Туда пойдут наши запросы
     Client cli("http://api.openweathermap.org");
     // Отправляем get-запрос и ждём ответ, который сохраняется в переменной res
-    auto res = cli.Get("/data/2.5/onecall?lat=44.96&lon=34.11&exclude=current,minutely,daily,alerts&appid=e77a594c893b3114f6e35c0c3aab4509");
+    // запрос погоды по часам для 7 дней
+    auto res = cli.Get("/data/2.5/onecall?lat=44.96&lon=34.11&units=metric&exclude=current,minutely,daily,alerts&appid=e77a594c893b3114f6e35c0c3aab4509");
     if (res) {
         // Проверяем статус ответа, т.к. может быть 404 и другие
         if (res->status == 200) {
@@ -62,12 +63,13 @@ json get_weather() {
 }
 
 json get_weather_cach() {
+    // из файла вычитываю погоду 
     ifstream fin("weather");
     if (fin.is_open()) {
         string f;
         getline(fin, f, '\0');
         fin.close();
-        return json(f);
+        return json::parse(f);
     }
     else {
         json forecast = get_weather();
@@ -81,29 +83,36 @@ json get_weather_cach() {
 }
 
 json get_weather_hour() {
-    long t = get_time();
+    // нахождение погоды за час до настоящего
+    long t = time(0);
     int k = 0;
     do {
         json w = get_weather_cach();
         if (!w["error"].is_null()) {
             return w;
         }
-        json hourly = w["hourly"].array();
+        json hourly = w["hourly"];
         int s = hourly.size() - 1;
         for (int i = s; i >= 0; --i) {
             if (hourly[i]["dt"] > t) {
                 return hourly[i];
             }
         }
+        // TODO загрузить новые данные с сервера 
     } while (k++ < 3);
     return json({ "error","нет данных" });
 }
 
 void repleas(string& text, string play, string change) {
-
+    size_t position = text.find(play);
+    while (position != string::npos) {
+        text.replace(position, play.length(), change);
+        position = text.find(play, position + play.length());
+    }
 }
 
 void gen_response(const Request& req, Response& res) {
+    // вывод данных в виде html
     json w = get_weather_hour();
     if (!w["error"].is_null()) {
         res.set_content(w.dump(), "text/json");
@@ -115,17 +124,20 @@ void gen_response(const Request& req, Response& res) {
     fin.close();
     cout << str;
     repleas(str, "{hourly[i].weather[0].description}", w["weather"][0]["description"]);
-    repleas(str, "{hourly[i].weather[0].icon}", w["weather"][0]["description"]);
-    repleas(str, "{hourly[i].temp}", w["weather"][0]["description"]);
+    repleas(str, "{hourly[i].weather[0].icon}", w["weather"][0]["icon"]);
+    repleas(str, "{hourly[i].temp}", to_string(w["temp"]));
+    cout << str;
 
 	res.set_content(str, "text/html");
 }
 void gen_response_raw(const Request& req, Response& res) {
+    // json
     json w = get_weather_hour();
     res.set_content(w.dump(), "text/json");
 }
 
 int main() {
+    // запуск сервера 
 	Server svr;                    // Создаём сервер (пока-что не запущен)
 	svr.Get("/", gen_response);
     svr.Get("/raw", gen_response_raw);     // Вызвать функцию gen_response если кто-то обратиться к корню "сайта"

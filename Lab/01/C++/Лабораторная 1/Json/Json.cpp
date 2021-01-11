@@ -17,6 +17,7 @@ int main()
     "everything": 42
   },
   "list": [1, 0, 2],
+  "listj": [{"v":123}],
   "object": {
     "currency": "USD",
     "value": 42.99
@@ -33,6 +34,11 @@ int main()
     // Идём по массиву
     for (int i = 0; i < j["list"].size(); i++)
         cout << "list[" << i << "] = " << j["list"][i] << endl;
+    // Идём по массиву
+    for (int i = 0; i < j["listj"].size(); i++) {
+    cout << "listj[" << i << "] = " << j["listj"][i] << endl;
+    cout << "listj[" << i << "] = " << j["listj"][i]["v"] << endl;
+    }
     // Пустой JSON
     json j2;
     // Заполняем разными данными

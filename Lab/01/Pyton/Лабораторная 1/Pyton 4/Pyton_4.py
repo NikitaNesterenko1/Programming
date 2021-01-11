@@ -1,4 +1,5 @@
 
+# вывод текущей погоды 
 from tkinter import *
 import requests
 import json
