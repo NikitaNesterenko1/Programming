@@ -51,28 +51,9 @@ api.openweathermap.org/data/2.5/onecall?lat=45.0522222222&lon=33.9744444444&excl
 Запрос для сервера погоды включает в себя город, время которого необходимо получить:
 
 http://api.openweathermap.org/data/2.5/weather?q=Simferopol&appid=e77a594c893b3114f6e35c0c3aab4509
+                                                Рис.1 Аккаунт openwheatermap.org
 
-Исходный код сервера:
 
-```cpp
-#include <iostream>
-#include <cpp_httplib/httplib.h>
-using namespace httplib;
- 
-// В этой функции формируем ответ сервера на запрос
-void gen_response(const Request& req, Response& res) {
-  // Команда set_content задаёт ответ сервера и тип ответа:
-  // Hello, World! - тело ответа
-  // text/plain - MIME тип ответа (в данном случае обычный текст)
-  res.set_content("Hello, World!", "text/plain");
-}
- 
-int main(){
-  Server svr;                    // Создаём сервер (пока-что не запущен)
-  svr.Get("/", gen_response);    // Вызвать функцию gen_response если кто-то обратиться к корню "сайта"
-  std::cout << "Start server... OK\n";
-  svr.listen("localhost", 1234); // Запускаем сервер на localhost и порту 1234
-}
 ```
 
 2.Подготовка к работе с сервисом worldtimeapi.org.
@@ -115,14 +96,17 @@ int main(){
   svr.listen("localhost", 1234); // Запускаем сервер на localhost и порту 1234
 }
 ```
+                                            Рис.2 Код "Server"
 
-Запустим программу и перейдем по ссылке: http://localhost:1234/. Мы видем сообщение  "Hello, World!". 
+Запустим программу и перейдем по ссылке: http://localhost:1234/. Мы видем сообщение  "Hello, World!"
 
 ![](./files/helloy1.png)
 
 В этом примере я отправляю get-запрос по адресу http://worldtimeapi.org/api/timezone/Europe/Simferopol. 
 
-![](./files/simferopol1.png)
+![](./files/simferopol2.png)
+
+                                            Рис.3  Get-запрос
 
 Изучаем алгоритм работы серверного приложения.Создаем свой собственный сервер.
 
@@ -213,6 +197,7 @@ int main() {
 	svr.listen("localhost", 3000); // Запускаем сервер на localhost и порту 3000
 }
 ```
+                                             Рис.4 Сервер
 
 Запускаем сервер и перейдя по ссылке http://localhost:3000/ мы получим желаемый результат. 
 
@@ -270,10 +255,13 @@ root.bind('<Button-1>', change)
 
 root.mainloop()
 ```
+                                         Рис.5 Клиент
 
-Запустив программу мы перейдя по ссылке https://vladimirchabanov.github.io/Lab1_fils/widget.html сможем увидеть:
+Запустив программу мы сможем увидеть:
 
 ![](./files/pyton1.png)
+
+                                   Рис.6 Программа на питоне
 
 ## 5.Туннель.
 
@@ -283,9 +271,11 @@ root.mainloop()
 
 Когда программа запустится по ссылке указанной в Forwarding наш сервер будет доступен из интернета.
 
-Если прописать в браузере http://127.0.0.1:4040 мы увидем статистику по запросам проходящим через туннель. 
+Мы можем видеть статистику по запросам проходящим через туннель. 
 
 ![](./files/tunnel1.png)
+
+                                         Рис.7 Туннель
 
 ## 6.Вывод.
  
