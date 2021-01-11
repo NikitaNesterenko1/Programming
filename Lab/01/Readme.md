@@ -51,7 +51,7 @@ api.openweathermap.org/data/2.5/onecall?lat=45.0522222222&lon=33.9744444444&excl
 Запрос для сервера погоды включает в себя город, время которого необходимо получить:
 
 http://api.openweathermap.org/data/2.5/weather?q=Simferopol&appid=e77a594c893b3114f6e35c0c3aab4509
-  Рис.1 Аккаунт openwheatermap.org
+                                                Рис.1 Аккаунт openwheatermap.org
 
 
 ```
@@ -95,16 +95,19 @@ int main(){
   std::cout << "Start server... OK\n";
   svr.listen("localhost", 1234); // Запускаем сервер на localhost и порту 1234
 }
-  Рис.2 Код "Server"
+```
+                                            Рис.2 Код "Server"
 
 Запустим программу и перейдем по ссылке: http://localhost:1234/. Мы видем сообщение  "Hello, World!"
 
 ![](./files/helloy1.png)
 
+                                            Рис.3 Hello, World!
 В этом примере я отправляю get-запрос по адресу http://worldtimeapi.org/api/timezone/Europe/Simferopol. 
 
 ![](./files/simferopol3.png)
-  Рис.3  Get-запрос
+
+                                            Рис.4  Get-запрос
 
 Изучаем алгоритм работы серверного приложения.Создаем свой собственный сервер.
 
@@ -194,12 +197,12 @@ int main() {
 	std::cout << "Start server... OK\n";
 	svr.listen("localhost", 3000); // Запускаем сервер на localhost и порту 3000
 }
-   Рис.4 Сервер
+```
+                                             Рис.5 Сервер
 
 Запускаем сервер и перейдя по ссылке http://localhost:3000/ мы получим желаемый результат. 
 
 ![](./files/server1.png)
-   Рис.5 Запуск
 
 Для проверки  приходит ли  запрос на "/raw", сервер формирует и отправляет json.
 
@@ -252,12 +255,14 @@ load()
 root.bind('<Button-1>', change)
 
 root.mainloop()
-```Рис.5 Клиент
+```
+                                           Рис.6 Клиент
 
 Запустив программу мы сможем увидеть:
 
 ![](./files/pyton1.png)
-   Рис.6 Программа на питоне
+
+                                       Рис.7 Программа на питоне
 
 ## 5.Туннель.
 
@@ -270,8 +275,9 @@ root.mainloop()
 Мы можем видеть статистику по запросам проходящим через туннель. 
 
 ![](./files/tunnel1.png)
-   Рис.7 Туннель
 
+                                          Рис.8 Туннель
+ 
 ## 6.Вывод.
  
 Цель работы была успешно достигнута. Было выполнено:
