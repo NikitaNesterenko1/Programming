@@ -41,7 +41,7 @@
 1.Для начала был зарегистрирован аккаунт openwheatermap.org. API ключ по-умолчанию созданный сервисом: e77a594c893b3114f6e35c0c3aab4509.
 
 ![](./files/open1.png) 
-                                               Рис.1 Аккаунт openwheatermap.org
+                                     Рис.1 Аккаунт openwheatermap.org
 
 
 Затем были произведены несколько тестовых запросов, чтобы убедиться, что они не имеют ошибок и вывод правилен.
@@ -50,10 +50,7 @@
 
 api.openweathermap.org/data/2.5/onecall?lat=45.0522222222&lon=33.9744444444&exclude=current,minutely,daily,alerts&appid=e77a594c893b3114f6e35c0c3aab4509&units=metric&lang=ru
 
-Запрос для сервера погоды включает в себя город, время которого необходимо получить:
-
-http://api.openweathermap.org/data/2.5/weather?q=Simferopol&appid=e77a594c893b3114f6e35c0c3aab4509
-
+Запрос для сервера погоды включает в себя город, время которого необходимо получить:http://api.openweathermap.org/data/2.5/weather?q=Simferopol&appid=e77a594c893b3114f6e35c0c3aab4509
 
 2.Подготовка к работе с сервисом worldtimeapi.org.
 
@@ -202,6 +199,7 @@ int main() {
 Запускаем сервер и перейдя по ссылке http://localhost:3000/ мы получим желаемый результат. 
 
 ![](./files/server1.png)
+                                             Рис.6 Проверка
 
 Для проверки  приходит ли  запрос на "/raw", сервер формирует и отправляет json.
 
@@ -255,13 +253,13 @@ root.bind('<Button-1>', change)
 
 root.mainloop()
 ```
-                                           Рис.6 Клиент
+                                           Рис.7 Клиент
 
 Запустив программу мы сможем увидеть:
 
 ![](./files/pyton1.png)
 
-                                       Рис.7 Программа на питоне
+                                       Рис.8 Программа на питоне
 
 ## 5.Туннель.
 
