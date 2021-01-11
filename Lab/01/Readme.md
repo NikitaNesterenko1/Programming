@@ -41,6 +41,8 @@
 1.Для начала был зарегистрирован аккаунт openwheatermap.org. API ключ по-умолчанию созданный сервисом: e77a594c893b3114f6e35c0c3aab4509.
 
 ![](./files/open1.png) 
+                                               Рис.1 Аккаунт openwheatermap.org
+
 
 Затем были произведены несколько тестовых запросов, чтобы убедиться, что они не имеют ошибок и вывод правилен.
 
@@ -51,7 +53,6 @@ api.openweathermap.org/data/2.5/onecall?lat=45.0522222222&lon=33.9744444444&excl
 Запрос для сервера погоды включает в себя город, время которого необходимо получить:
 
 http://api.openweathermap.org/data/2.5/weather?q=Simferopol&appid=e77a594c893b3114f6e35c0c3aab4509
-                                                Рис.1 Аккаунт openwheatermap.org
 
 
 ```
