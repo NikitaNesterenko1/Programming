@@ -10,7 +10,7 @@ using json = nlohmann::json;
 using namespace httplib;
 namespace fs = std::filesystem;
 
-// Заменить в переменной 'data' строку 'to_replace' строкой 'replace_with'
+// Р—Р°РјРµРЅРёС‚СЊ РІ РїРµСЂРµРјРµРЅРЅРѕР№ 'data' СЃС‚СЂРѕРєСѓ 'to_replace' СЃС‚СЂРѕРєРѕР№ 'replace_with'
 void replace_all(std::string& data,
 	const std::string& to_replace,
 	const std::string& replace_with)
@@ -31,7 +31,7 @@ std::string webhook_template = R"(
         <input type="text" value="{Webhook URL}" class="form-control mb-2" disabled>
     </div>
     <div class="col">
-        <button type="submit" name="del" value="{Webhook URL}" class="btn btn-danger mb-2">Удалить</button>
+        <button type="submit" name="del" value="{Webhook URL}" class="btn btn-danger mb-2">РЈРґР°Р»РёС‚СЊ</button>
     </div>
 </div>)";
 
@@ -43,12 +43,12 @@ json get_config()
 	json config;
 	if (config_file.is_open())
 	{
-		std::cout << "Инфо: Идет десериализация json. Если сообщение об успешном завершении не последует, "
-			<< "возможно, проблема с файлом конфига." << std::endl;
+		std::cout << "РРЅС„Рѕ: РРґРµС‚ РґРµСЃРµСЂРёР°Р»РёР·Р°С†РёСЏ json. Р•СЃР»Рё СЃРѕРѕР±С‰РµРЅРёРµ РѕР± СѓСЃРїРµС€РЅРѕРј Р·Р°РІРµСЂС€РµРЅРёРё РЅРµ РїРѕСЃР»РµРґСѓРµС‚, "
+			<< "РІРѕР·РјРѕР¶РЅРѕ, РїСЂРѕР±Р»РµРјР° СЃ С„Р°Р№Р»РѕРј РєРѕРЅС„РёРіР°." << std::endl;
 
 		config_file >> config;
 
-		std::cout << "Инфо: Десериализация json успешно завершена." << std::endl;
+		std::cout << "РРЅС„Рѕ: Р”РµСЃРµСЂРёР°Р»РёР·Р°С†РёСЏ json СѓСЃРїРµС€РЅРѕ Р·Р°РІРµСЂС€РµРЅР°." << std::endl;
 		config_file.close();
 	}
 	else
@@ -56,12 +56,12 @@ json get_config()
 		fs::path config_path{ config_file_name };
 		if (fs::exists(config_path))
 		{
-			std::cout << "Ошибка: Файл " << fs::absolute(config_path) << " существует, но открыть его не удалось. "
-				<< "Проверьте права доступа к этому файлу." << std::endl;
+			std::cout << "РћС€РёР±РєР°: Р¤Р°Р№Р» " << fs::absolute(config_path) << " СЃСѓС‰РµСЃС‚РІСѓРµС‚, РЅРѕ РѕС‚РєСЂС‹С‚СЊ РµРіРѕ РЅРµ СѓРґР°Р»РѕСЃСЊ. "
+				<< "РџСЂРѕРІРµСЂСЊС‚Рµ РїСЂР°РІР° РґРѕСЃС‚СѓРїР° Рє СЌС‚РѕРјСѓ С„Р°Р№Р»Сѓ." << std::endl;
 		}
 		else
 		{
-			std::cout << "Ошибка: Файл " << fs::absolute(config_path) << " не существует." << std::endl;
+			std::cout << "РћС€РёР±РєР°: Р¤Р°Р№Р» " << fs::absolute(config_path) << " РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚." << std::endl;
 		}
 		json return_json;
 		return_json["webhooks"] = json::array();
@@ -76,21 +76,21 @@ void save_config(json config)
 	fs::path config_path{ config_file_name };
 	if (!fs::exists(config_path))
 	{
-		std::cout << "Инфо: Файл " << fs::absolute(config_path) << " не существует. Создаём новый..." << std::endl;
+		std::cout << "РРЅС„Рѕ: Р¤Р°Р№Р» " << fs::absolute(config_path) << " РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚. РЎРѕР·РґР°С‘Рј РЅРѕРІС‹Р№..." << std::endl;
 	}
 
 	std::ofstream config_file(config_file_name);
 	if (config_file.is_open())
 	{
-		std::cout << "Инфо: Пишем файл конфигурации..." << std::endl;
+		std::cout << "РРЅС„Рѕ: РџРёС€РµРј С„Р°Р№Р» РєРѕРЅС„РёРіСѓСЂР°С†РёРё..." << std::endl;
 		config_file << config.dump(4);
 		config_file.close();
 	}
 	else
 	{
-		std::cout << "Не удалось создать файл на пути " << fs::absolute(config_path) << "!"
-			<< "Проверьте права доступа на папку " << fs::current_path()
-			<< " или на файл конфигурации." << std::endl;
+		std::cout << "РќРµ СѓРґР°Р»РѕСЃСЊ СЃРѕР·РґР°С‚СЊ С„Р°Р№Р» РЅР° РїСѓС‚Рё " << fs::absolute(config_path) << "!"
+			<< "РџСЂРѕРІРµСЂСЊС‚Рµ РїСЂР°РІР° РґРѕСЃС‚СѓРїР° РЅР° РїР°РїРєСѓ " << fs::current_path()
+			<< " РёР»Рё РЅР° С„Р°Р№Р» РєРѕРЅС„РёРіСѓСЂР°С†РёРё." << std::endl;
 	}
 }
 
@@ -109,12 +109,12 @@ std::string gen_webhook_page()
 		fs::path config_path{ webpage_file_name };
 		if (fs::exists(config_path))
 		{
-			std::cout << "Ошибка: Файл " << fs::absolute(config_path) << " существует, но открыть его не удалось. "
-				<< "Проверьте права доступа к этому файлу." << std::endl;
+			std::cout << "РћС€РёР±РєР°: Р¤Р°Р№Р» " << fs::absolute(config_path) << " СЃСѓС‰РµСЃС‚РІСѓРµС‚, РЅРѕ РѕС‚РєСЂС‹С‚СЊ РµРіРѕ РЅРµ СѓРґР°Р»РѕСЃСЊ. "
+				<< "РџСЂРѕРІРµСЂСЊС‚Рµ РїСЂР°РІР° РґРѕСЃС‚СѓРїР° Рє СЌС‚РѕРјСѓ С„Р°Р№Р»Сѓ." << std::endl;
 		}
 		else
 		{
-			std::cout << "Ошибка: Файл " << fs::absolute(config_path) << " не существует." << std::endl;
+			std::cout << "РћС€РёР±РєР°: Р¤Р°Р№Р» " << fs::absolute(config_path) << " РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚." << std::endl;
 		}
 		return "";
 	}
@@ -135,9 +135,9 @@ std::string gen_webhook_page()
 			}
 			else
 			{
-				std::cout << "Ошибка: Проверьте конфигурационный файл. "
-					<< "Был обнаружен " << webhook << " с типом данных '" << webhook.type_name()
-					<< "'. Ожидалась строка." << std::endl;
+				std::cout << "РћС€РёР±РєР°: РџСЂРѕРІРµСЂСЊС‚Рµ РєРѕРЅС„РёРіСѓСЂР°С†РёРѕРЅРЅС‹Р№ С„Р°Р№Р». "
+					<< "Р‘С‹Р» РѕР±РЅР°СЂСѓР¶РµРЅ " << webhook << " СЃ С‚РёРїРѕРј РґР°РЅРЅС‹С… '" << webhook.type_name()
+					<< "'. РћР¶РёРґР°Р»Р°СЃСЊ СЃС‚СЂРѕРєР°." << std::endl;
 			}
 		}
 	}
@@ -164,11 +164,11 @@ void webhooks_post(const Request& req, Response& res)
 		std::string value = req.get_param_value("del");
 		if (value == "")
 		{
-			std::cout << "Инфо: Пустой запрос на удаление вебхука." << std::endl;
+			std::cout << "РРЅС„Рѕ: РџСѓСЃС‚РѕР№ Р·Р°РїСЂРѕСЃ РЅР° СѓРґР°Р»РµРЅРёРµ РІРµР±С…СѓРєР°." << std::endl;
 		}
 		else
 		{
-			std::cout << "Инфо: В POST получен параметр del=" << value << std::endl;
+			std::cout << "РРЅС„Рѕ: Р’ POST РїРѕР»СѓС‡РµРЅ РїР°СЂР°РјРµС‚СЂ del=" << value << std::endl;
 
 			if (!config["webhooks"].empty())
 			{
@@ -178,8 +178,8 @@ void webhooks_post(const Request& req, Response& res)
 				{
 					if (ptr->is_string() && ptr->get<std::string>() == value)
 					{
-						std::cout << "Инфо: вебхук " << ptr->get<std::string>()
-							<< " найден в конфигурации и был удалён." << std::endl;
+						std::cout << "РРЅС„Рѕ: РІРµР±С…СѓРє " << ptr->get<std::string>()
+							<< " РЅР°Р№РґРµРЅ РІ РєРѕРЅС„РёРіСѓСЂР°С†РёРё Рё Р±С‹Р» СѓРґР°Р»С‘РЅ." << std::endl;
 						config["webhooks"].erase(ptr);
 						break;
 					}
@@ -187,7 +187,7 @@ void webhooks_post(const Request& req, Response& res)
 			}
 			else
 			{
-				std::cout << "Инфо: Вебхуки отсутствуют. Нечего удалять!" << std::endl;
+				std::cout << "РРЅС„Рѕ: Р’РµР±С…СѓРєРё РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚. РќРµС‡РµРіРѕ СѓРґР°Р»СЏС‚СЊ!" << std::endl;
 			}
 		}
 	}
@@ -196,11 +196,11 @@ void webhooks_post(const Request& req, Response& res)
 		std::string value = req.get_param_value("set");
 		if (value == "")
 		{
-			std::cout << "Инфо: Пустой запрос на создание вебхука." << std::endl;
+			std::cout << "РРЅС„Рѕ: РџСѓСЃС‚РѕР№ Р·Р°РїСЂРѕСЃ РЅР° СЃРѕР·РґР°РЅРёРµ РІРµР±С…СѓРєР°." << std::endl;
 		}
 		else
 		{
-			std::cout << "Инфо: В POST получен параметр set=" << value << std::endl;
+			std::cout << "РРЅС„Рѕ: Р’ POST РїРѕР»СѓС‡РµРЅ РїР°СЂР°РјРµС‚СЂ set=" << value << std::endl;
 
 			if (!config["webhooks"].empty())
 			{
@@ -211,20 +211,20 @@ void webhooks_post(const Request& req, Response& res)
 				{
 					if (ptr->is_string() && ptr->get<std::string>() == value)
 					{
-						std::cout << "Инфо: вебхук " << ptr->get<std::string>()
-							<< " уже существует в конфигурации." << std::endl;
+						std::cout << "РРЅС„Рѕ: РІРµР±С…СѓРє " << ptr->get<std::string>()
+							<< " СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ РІ РєРѕРЅС„РёРіСѓСЂР°С†РёРё." << std::endl;
 						webhook_exist = true;
 						break;
 					}
 				}
 				if (!webhook_exist) {
-					std::cout << "Инфо: добавлен вебхук " << value << "." << std::endl;
+					std::cout << "РРЅС„Рѕ: РґРѕР±Р°РІР»РµРЅ РІРµР±С…СѓРє " << value << "." << std::endl;
 					config["webhooks"].push_back(value);
 				}
 			}
 			else
 			{
-				std::cout << "Инфо: добавлен вебхук " << value << "." << std::endl;
+				std::cout << "РРЅС„Рѕ: РґРѕР±Р°РІР»РµРЅ РІРµР±С…СѓРє " << value << "." << std::endl;
 				config["webhooks"].push_back(value);
 			}
 		}
