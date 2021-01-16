@@ -10,6 +10,7 @@ using json = nlohmann::json;
 using namespace httplib;
 namespace fs = std::filesystem;
 
+// «аменить в переменной 'data' строку 'to_replace' строкой 'replace_with'
 void replace_all(std::string& data,
 	const std::string& to_replace,
 	const std::string& replace_with)

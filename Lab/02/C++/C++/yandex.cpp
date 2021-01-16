@@ -77,10 +77,10 @@ json help_state_buttons =
 	},
 };
 
-json get_config();
+json get_config(); // webhooks.cpp
 void replace_all(std::string& data,
 	const std::string& to_replace,
-	const std::string& replace_with); 
+	const std::string& replace_with); // webhooks.cpp
 
 json gen_response(const std::string& text,
 	const std::string& tts,
@@ -143,6 +143,7 @@ void yandex_hook(const Request& req, Response& res)
 				{"voice_mode", silent_mode},
 				{"cart", json::array()}
 			};
+			// Сессия новая, добавляем её в сессии.
 			session_list.push_back(session);
 			cur_session = &session_list[session_list.size() - 1];
 		}
@@ -177,7 +178,8 @@ void yandex_hook(const Request& req, Response& res)
 	std::string command = req_json["request"]["command"];
 	if ((*cur_session)["skill_mode"] == help_mode)
 	{
-		
+		// молчать, говорить, помощь, корзина, выйти из помощи, покупка завершена, сумма
+		// О чём ещё рассказать?
 		std::string text;
 		std::string tts;
 
@@ -366,20 +368,26 @@ void yandex_hook(const Request& req, Response& res)
 				{"cart", (*cur_session)["cart"]}
 			};
 
-			json config = get_config(); 
+			json config = get_config(); // webhooks.cpp
 
 			for (std::string link : config["webhooks"])
 			{
-				
+				// Либа не работает с https ссылками.
 				replace_all(link, "https://", "http://");
 
+				// Если передали линк без '/' на конце, добавляем его
 				if (link.find("http://") != 0)
 				{
 					std::cout << "bad link" << std::endl;
 					continue;
 				}
 
+
+				// http://
+				// 1234567
 				const int http_protocol_size = 7;
+
+				// найти первую / после объявления протокола и "//"
 
 				int index = link.find('/', http_protocol_size);
 				if (index == std::string::npos)
@@ -471,6 +479,8 @@ void yandex_hook(const Request& req, Response& res)
 				{
 					number_index = entity["tokens"]["start"];
 					std::cout << entity["value"].type_name() << std::endl;
+					//if (entity["value"].type() == json::value_t::number_integer)
+					//{
 					int val = entity["value"];
 					std::cout << "Инфо: цена " << val << std::endl;
 					if (val < 0)
@@ -603,6 +613,7 @@ void yandex_hook(const Request& req, Response& res)
 		}
 	}
 
-	
+	// Сохранить сессии в файл
+
 	std::cout << std::endl;
 }
