@@ -145,13 +145,13 @@ int main()
 }
 ```
 
-Инициализация сервера: [main.cpp](C++/Project1/main.cpp)
+Инициализация сервера: [main.cpp](C++/main.cpp)
 
-Логика работы с яндекс диалогами: [yandex.cpp](C++/Project1/yandex.cpp)
+Логика работы с яндекс диалогами: [yandex.cpp](C++/yandex.cpp)
 
-Логика работы с вебхуками и конфигурационными файлами: [webhooks.cpp](C++/Project1/webhooks.cpp)
+Логика работы с вебхуками и конфигурационными файлами: [webhooks.cpp](C++/webhooks.cpp)
 
-Ссылка на исходный код на Python: [script.py](Python/script.py)
+Ссылка на исходный код на Python: [Pyton.py](Python/script.py)
 
 ## Вывод
 
