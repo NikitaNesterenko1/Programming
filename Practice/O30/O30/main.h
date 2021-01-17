@@ -81,7 +81,7 @@ std::vector<Pair<Item, double>> chances{
     {GetArmor(50, 100), 2.8},
 };
 
-const int precision = 100;  // Точность до сотых в шансах
+const int precision = 100;  // РўРѕС‡РЅРѕСЃС‚СЊ РґРѕ СЃРѕС‚С‹С… РІ С€Р°РЅСЃР°С…
 double count_total_chance() {
     double sum = 0;
     for (auto& pair : chances) {
@@ -90,7 +90,7 @@ double count_total_chance() {
     return sum * precision;
 }
 
-const double total_chance = count_total_chance();  // сумма всех шансов
+const double total_chance = count_total_chance();  // СЃСѓРјРјР° РІСЃРµС… С€Р°РЅСЃРѕРІ
 
 using LootBox = std::vector<Item>;
 
