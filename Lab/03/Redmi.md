@@ -64,23 +64,24 @@
 
 Скриншоты игрового процесса:
 
-![](docs/начало.png)
+![](doc/начало.png)
    
    Рисунок 1. Игра "Шарики"
 
-![](docs/удаление1.png)
 
-![](docs/удаление2.png)
+![](doc/удаление1.png)
+
+![](doc/удаление2.png)
    
    Рисунок 2. Игрок удалил ряд из зеленых шаров 
 
-![](docs/конец.png)
+
+![](doc/конец.png)
    
    Рисунок 3. Игрок проиграл 
 
-Исходный код на Python:
 
-[Pyton.py](Python/Pyton/Pyton.py)
+Исходный код на Python: [Pyton.py](Pyton/Pyton/Pyton.py)
 
 <details>
 <summary>Спойлер!</summary>
