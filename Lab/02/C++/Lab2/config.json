@@ -1,5 +1,6 @@
 {
     "webhooks": [
-        "bbb\\"
+        "http://localhost:5000/",
+        "http://c2202c3f1f03.ngrok.io/"
     ]
 }

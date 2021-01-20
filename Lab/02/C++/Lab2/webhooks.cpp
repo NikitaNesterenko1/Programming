@@ -40,16 +40,17 @@ json config;
 json get_config()
 {
 	std::ifstream config_file(config_file_name);
-	json config;
 	if (config_file.is_open())
 	{
 		std::cout << "Инфо: Идет десериализация json. Если сообщение об успешном завершении не последует, "
 			<< "возможно, проблема с файлом конфига." << std::endl;
 
+		json config;
 		config_file >> config;
 
 		std::cout << "Инфо: Десериализация json успешно завершена." << std::endl;
 		config_file.close();
+		return config;
 	}
 	else
 	{
@@ -67,7 +68,6 @@ json get_config()
 		return_json["webhooks"] = json::array();
 		return return_json;
 	}
-	return config;
 }
 
 
@@ -106,15 +106,15 @@ std::string gen_webhook_page()
 	}
 	else
 	{
-		fs::path config_path{ webpage_file_name };
-		if (fs::exists(config_path))
+		fs::path webpage_file_path{ webpage_file_name };
+		if (fs::exists(webpage_file_path))
 		{
-			std::cout << "Ошибка: Файл " << fs::absolute(config_path) << " существует, но открыть его не удалось. "
+			std::cout << "Ошибка: Файл " << fs::absolute(webpage_file_path) << " существует, но открыть его не удалось. "
 				<< "Проверьте права доступа к этому файлу." << std::endl;
 		}
 		else
 		{
-			std::cout << "Ошибка: Файл " << fs::absolute(config_path) << " не существует." << std::endl;
+			std::cout << "Ошибка: Файл " << fs::absolute(webpage_file_path) << " не существует." << std::endl;
 		}
 		return "";
 	}
