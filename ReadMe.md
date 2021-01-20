@@ -6,15 +6,15 @@
 
 | Практические | Лабораторные |
 | ------------ | ------------ |
-| Практическая 1 - [[C++]](./Practice/O%201/C++/) [[Python]](./Practice/O1/Python/) | [[Лабораторная 1]](./Lab/01/) |
-| Практическая 2 - [[C++]](./Practice/O%202/C++/) [[Python]](./Practice/O2/Python/) | [[Лабораторная 2]](./Lab/02/) |
-| Практическая 3 - [[C++]](./Practice/O%203/C++/) [[Python]](./Practice/O3/Python/) | [[Лабораторная 3]](./Lab/03/) |
-| Практическая 4 - [[C++]](./Practice/O%204/C++/) [[Python]](./Practice/O4/Python/) | |
-| Практическая 5 - [[C++]](./Practice/O%205/C++/) [[Python]](./Practice/O5/Python/) | |
-| Практическая 6 - [[C++]](./Practice/O%206/C++/) [[Python]](./Practice/O6/Python/) | |
-| Практическая 7 - [[C++]](./Practice/O%207/C++/) [[Python]](./Practice/O7/Python/) | |
-| Практическая 8 - [[C++]](./Practice/O%208/C++/) [[Python]](./Practice/O8/Python/) | |
-| Практическая 9 - [[C++]](./Practice/O%209/C++/) [[Python]](./Practice/O9/Python/) | |
+| Практическая 1 - [[C++]](./Practice/O%201/C++/) [[Python]](./Practice/O%201/Python/) | [[Лабораторная 1]](./Lab/01/) |
+| Практическая 2 - [[C++]](./Practice/O%202/C++/) [[Python]](./Practice/O%202/Python/) | [[Лабораторная 2]](./Lab/02/) |
+| Практическая 3 - [[C++]](./Practice/O%203/C++/) [[Python]](./Practice/O%203/Python/) | [[Лабораторная 3]](./Lab/03/) |
+| Практическая 4 - [[C++]](./Practice/O%204/C++/) [[Python]](./Practice/O%204/Python/) | |
+| Практическая 5 - [[C++]](./Practice/O%205/C++/) [[Python]](./Practice/O%205/Python/) | |
+| Практическая 6 - [[C++]](./Practice/O%206/C++/) [[Python]](./Practice/O%206/Python/) | |
+| Практическая 7 - [[C++]](./Practice/O%207/C++/) [[Python]](./Practice/O%207/Python/) | |
+| Практическая 8 - [[C++]](./Practice/O%208/C++/) [[Python]](./Practice/O%208/Python/) | |
+| Практическая 9 - [[C++]](./Practice/O%209/C++/) [[Python]](./Practice/O%209/Python/) | |
 | Практическая 10 - [[C++]](./Practice/O10/C++/) [[Python]](./Practice/O10/Python/) | |
 | Практическая 11 - [[C++]](./Practice/O11/C++/) [[Python]](./Practice/O11/Python/) | |
 | Практическая 12 - [[C++]](./Practice/O12/C++/) [[Python]](./Practice/O12/Python/) | |
