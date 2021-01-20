@@ -2,9 +2,9 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>3466071c-2378-4272-9835-2566ad74f808</ProjectGuid>
+    <ProjectGuid>fdebd465-d8b0-40d9-b4da-dd2afd7119dc</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Game.py</StartupFile>
+    <StartupFile>Pyton.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,10 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Game.py" />
-    <Compile Include="new_game.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Pyton.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
